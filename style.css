@@ -1,7 +1,7 @@
 :root {
   --text-color: #333333;
   --background-color: #f0f0f0;
-  --background-color-2: #7a343480;
+  --background-color-2: #5a2d2df8;
   --background-color-3: #c1c1c1;
   --border-color: #87878752;
   --color-white: #ffffff;
@@ -47,10 +47,9 @@ body {
   transform: rotate(3deg);
 }
 
-.airTemperature {
+.airTemperature,
+.helloSmartStop {
   position: absolute;
-  top: 209px;
-  left: 364px;
   padding: 5px;
   font-size: 14px;
   color: var(--color-red);
@@ -58,7 +57,18 @@ body {
   border-radius: 10px;
 }
 
-.airTemperature:hover {
+.airTemperature {
+  top: 209px;
+  left: 377px;
+}
+
+.helloSmartStop {
+  top: 174px;
+  left: 364px;
+}
+
+.airTemperature:hover,
+.helloSmartStop:hover {
   background-color: var(--background-color-3);
   cursor: pointer;
 }

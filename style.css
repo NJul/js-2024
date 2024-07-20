@@ -2,6 +2,7 @@
   --text-color: #333333;
   --background-color: #f0f0f0;
   --background-color-2: #7a343480;
+  --background-color-3: #c1c1c1;
   --border-color: #87878752;
   --color-white: #ffffff;
   --color-red: #ff0000;
@@ -34,19 +35,36 @@ body {
   height: auto;
 }
 
-.dateOutput {
+.dataOutput {
   position: absolute;
   top: 95px;
   left: 250px;
   padding: 5px;
   font-size: 16px;
   color: var(--color-red);
-  background-color: #7a343480;
+  background-color: var(--background-color-2);
   border-radius: 3px;
   transform: rotate(3deg);
 }
 
+.airTemperature {
+  position: absolute;
+  top: 209px;
+  left: 364px;
+  padding: 5px;
+  font-size: 14px;
+  color: var(--color-red);
+  background-color: var(--background-color);
+  border-radius: 10px;
+}
+
+.airTemperature:hover {
+  background-color: var(--background-color-3);
+  cursor: pointer;
+}
+
 /* title-text-container */
+
 .title-text-container {
   display: flex;
   justify-content: flex-end;
@@ -93,4 +111,5 @@ body {
 .title-text:hover::after {
   transform: rotate(0);
 }
+
 /* / title-text-container */

@@ -1,7 +1,7 @@
 :root {
   --text-color: #333333;
   --background-color: #f0f0f0;
-  --background-color-2: #5a2d2df8;
+  --background-color-2: #2a2d35de;
   --background-color-3: #c1c1c1;
   --border-color: #87878752;
   --color-white: #ffffff;
@@ -38,12 +38,11 @@ body {
 .dataOutput {
   position: absolute;
   top: 95px;
-  left: 250px;
-  padding: 5px;
+  left: 238px;
+  padding: 5px 10px;
   font-size: 16px;
   color: var(--color-red);
   background-color: var(--background-color-2);
-  border-radius: 3px;
   transform: rotate(3deg);
 }
 

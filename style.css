@@ -6,6 +6,7 @@
   --border-color: #87878752;
   --color-white: #ffffff;
   --color-red: #ff0000;
+  --color-royalblue: #4169e1;
 }
 
 body {
@@ -46,28 +47,36 @@ body {
   transform: rotate(3deg);
 }
 
-.airTemperature,
-.helloSmartStop {
+.dataOutput .time {
+  color: var(--color-royalblue);
+}
+
+.helloSmartStop,
+.clock {
   position: absolute;
   padding: 5px;
   font-size: 14px;
-  color: var(--color-red);
+  color: var(--color-royalblue);
   background-color: var(--background-color);
+  border-color: var(--color-royalblue);
+  border-width: 1px;
   border-radius: 10px;
 }
 
-.airTemperature {
-  top: 209px;
-  left: 377px;
+.clock {
+  top: 179px;
+  left: 421px;
+  transform: rotate(2deg);
 }
 
 .helloSmartStop {
-  top: 174px;
-  left: 364px;
+  top: 141px;
+  left: 367px;
+  transform: rotate(2deg);
 }
 
-.airTemperature:hover,
-.helloSmartStop:hover {
+.helloSmartStop:hover,
+.clock:hover {
   background-color: var(--background-color-3);
   cursor: pointer;
 }

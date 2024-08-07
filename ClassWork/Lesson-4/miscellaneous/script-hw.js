@@ -1,3 +1,125 @@
+/* Game: "Rock, Scissors, Paper" */
+
+function getUserChoice() {
+  const choices = ['камінь', 'ножиці', 'папір'];
+  let userInput = prompt(
+    'Введіть ваш вибір (камінь, ножиці, папір) або "вихід" для завершення гри:'
+  ).toLowerCase();
+  while (!choices.includes(userInput) && userInput !== 'вихід') {
+    userInput = prompt(
+      'Неправильний вибір. Введіть камінь, ножиці або папір, або "вихід" для завершення гри:'
+    ).toLowerCase();
+  }
+  return userInput;
+}
+
+function getComputerChoice() {
+  const choices = ['камінь', 'ножиці', 'папір'];
+  const randomIndex = Math.floor(Math.random() * 3);
+  return choices[randomIndex];
+}
+
+function determineWinner(userChoice, computerChoice) {
+  if (userChoice === computerChoice) {
+    return 'нічия';
+  }
+  if (
+    (userChoice === 'камінь' && computerChoice === 'ножиці') ||
+    (userChoice === 'ножиці' && computerChoice === 'папір') ||
+    (userChoice === 'папір' && computerChoice === 'камінь')
+  ) {
+    return 'користувач';
+  } else {
+    return "комп'ютер";
+  }
+}
+
+function playGame() {
+  let userScore = 0;
+  let computerScore = 0;
+  let rounds = 0;
+
+  while (true) {
+    const userChoice = getUserChoice();
+    if (userChoice === 'вихід') {
+      alert(
+        `Гра завершена. Загальний рахунок: користувач ${userScore} - комп'ютер ${computerScore}`
+      );
+      break;
+    }
+
+    const computerChoice = getComputerChoice();
+    const winner = determineWinner(userChoice, computerChoice);
+
+    if (winner === 'користувач') {
+      userScore++;
+    } else if (winner === "комп'ютер") {
+      computerScore++;
+    }
+
+    rounds++;
+    alert(
+      `Результат раунду ${rounds}:\n Користувач обрав: ${userChoice}\n Комп'ютер обрав: ${computerChoice}\n Переможець: ${winner}\n\n Поточний рахунок:\n Користувач: ${userScore}\n Комп'ютер: ${computerScore}`
+    );
+  }
+}
+
+playGame();
+
+/* A math quiz */
+
+let correctAnswers = 0;
+let wrongAnswers = 0;
+const attempts = 5;
+
+for (let i = 0; i < attempts; i++) {
+  let numberOne = Math.floor(Math.random() * 10) + 1;
+  let numberTwo = Math.floor(Math.random() * 10) + 1;
+  let operators = ['+', '-', '*', '/'];
+  let operator = operators[Math.floor(Math.random() * operators.length)];
+  let expression = `${numberOne} ? ${numberTwo}`;
+  let expressionDisplay =
+    operator === '+' || operator === '-'
+      ? `${numberOne} ${operator} ${numberTwo}`
+      : expression;
+  let userAnswer = parseFloat(
+    prompt(
+      `Розв'яжіть: ${expressionDisplay}
+    ? = * або /
+    При діленні враховуються 2 знаки після крапки`
+    )
+  );
+
+  let correctAnswer;
+
+  switch (operator) {
+    case '+':
+      correctAnswer = numberOne + numberTwo;
+      break;
+    case '-':
+      correctAnswer = numberOne - numberTwo;
+      break;
+    case '*':
+      correctAnswer = numberOne * numberTwo;
+      break;
+    case '/':
+      correctAnswer = parseFloat((numberOne / numberTwo).toFixed(2));
+      break;
+  }
+
+  if (userAnswer === correctAnswer) {
+    correctAnswers++;
+    alert('Правильно!');
+  } else {
+    wrongAnswers++;
+    alert(`Неправильно! Правильна відповідь: ${correctAnswer}`);
+  }
+}
+
+alert(
+  `Гра завершена! Кількість правильних відповідей: ${correctAnswers}, кількість неправильних відповідей: ${wrongAnswers}`
+);
+
 /* Завдання 1
 
 Гра: "Камінь, ножиці, папір"
@@ -56,5 +178,4 @@
 
 5.Виведення результатів:
 
-	- Використайте alert для виведення підсумкових результатів.
- */
+	- Використайте alert для виведення підсумкових результатів. */

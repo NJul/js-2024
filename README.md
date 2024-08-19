@@ -54,6 +54,10 @@ git push origin --delete `<branchName>` : delete the branch on the server
 
 ---
 
+git fetch -p : така команда повинна видалити гілки локально, якщо вони були видалені з ремоуту
+
+---
+
 **Command Prompt | cmd :** Ctrl + Shift + N ; F2 ; D: ; cd "Ca(Tab)libre" ; cd .. ;
 
 🠕 🠗 ; - following the history of commits

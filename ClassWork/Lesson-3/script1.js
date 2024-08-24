@@ -1,4 +1,5 @@
-prompt("Введіть ім'я");
+let name = prompt("Введіть ім'я");
+console.log('Привіт ' + name);
 
 /*
 const dataOutput = document.getElementById('dataOutput');

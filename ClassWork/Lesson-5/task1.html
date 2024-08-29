@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task 1</title>
+  </head>
+  <body>
+    <h2>Задача 1: Обчислення площі та периметру кола</h2>
+    <p>Мета: створити програму для обчислення площі та периметру кола.</p>
+
+    <strong>Інструкції:</strong>
+    <ol>
+      <li>
+        Створити функцію для обчислення площі та периметру кола:
+        <ul>
+          <li>Функція приймає радіус кола як параметр.</li>
+          <li>
+            Формули для обчислення:
+            <ul>
+              <li>Площа: π * r<sup>2</sup></li>
+              <li>Периметр: 2 * π * r</li>
+            </ul>
+          </li>
+        </ul>
+      </li>
+      <li>
+        Запросити користувача ввести радіус кола за допомогою
+        <code>prompt</code>.
+      </li>
+      <li>Вивести результати обчислень за допомогою <code>alert</code>.</li>
+    </ol>
+
+    <script src="../common/my-library.js"></script>
+    <script>
+      // функції з бізнес логікою, окремі обчислення, які дають чисті данні
+      // function getCircleArea(radius) {
+      //   return Math.PI * Math.pow(radius, 2);
+      // }
+
+      let getCircleArea = (radius) => Math.PI * Math.pow(radius, 2);
+
+      function getCirclePerimeter(radius) {
+        return 2 * Math.PI * radius;
+      }
+
+      const radius = getNumericValue('Введіть радіус');
+      let area = getCircleArea(radius);
+      let perimeter = getCirclePerimeter(radius);
+
+      // окремо логіка, яка ці данні кудись виводить
+      console.log(`area: ${area}, perimeter: ${perimeter}`);
+    </script>
+  </body>
+</html>

@@ -64,6 +64,8 @@ git fetch -p : така команда повинна видалити гілк�
 
 **VS Code:** Ctrl + Space ; - clue ; Ctrl + Shift + G ; - sourse control ;
 
+Win + V - clipboard history - everything that was copied before
+
 ```
 
 ```

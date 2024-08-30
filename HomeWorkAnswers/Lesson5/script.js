@@ -1,7 +1,45 @@
 /* Завдання 1 */
-function calculateBodyMassIndex() {
-  return;
+/* Програма, яка обчислює індекс маси тіла */
+
+const calculateBodyMassIndex = (weightKg, heightM) =>
+  (weightKg / heightM ** 2).toFixed(1);
+
+const getBMICategory = bmi => {
+  if (bmi < 18.5) {
+    return 'Недостатня вага';
+  } else if (bmi >= 18.5 && bmi < 24.9) {
+    return 'Нормальна вага';
+  } else if (bmi >= 25 && bmi < 29.9) {
+    return 'Надмірна вага';
+  } else if (bmi >= 30) {
+    return 'Ожиріння';
+  }
+};
+
+const getNumericValue = message => {
+  while (true) {
+    let value = prompt(message);
+    if (value === null) return null;
+    value = value.replace(',', '.');
+    let isValid = !isNaN(value) && value.trim() !== '';
+    if (isValid) return Number(value);
+  }
+};
+
+const weightKg = getNumericValue('Введіть вашу вагу в кілограмах:');
+const heightM = getNumericValue('Введіть ваш ріст в метрах, наприклад, 1.71:');
+
+const bmi = calculateBodyMassIndex(weightKg, heightM);
+const category = getBMICategory(bmi);
+
+if (weightKg === null || heightM === null) {
+  console.log('Ви скасували введення значень');
+} else {
+  alert(`Ваш ІМТ: ${bmi} (${category})`);
 }
+
+/* Завдання 2 */
+/* Програма, яка обчислює площу та периметр різних геометричних фігур */
 
 /* Завдання 1
 Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення.
@@ -10,7 +48,6 @@ function calculateBodyMassIndex() {
 
 1. Створити функцію для обчислення ІМТ:
    - Формула: Індекс маси тіла розраховується шляхом ділення маси тіла (у кілограмах) на квадрат росту (у метрах квадратних)
-https://moz.gov.ua/uk/jak-viznachti-optimalnu-vagu-formula-indeksu-masi-tila#:~:text=%D0%86%D0%BD%D0%B4%D0%B5%D0%BA%D1%81%20%D0%BC%D0%B0%D1%81%D0%B8%20%D1%82%D1%96%D0%BB%D0%B0%20%D1%80%D0%BE%D0%B7%D1%80%D0%B0%D1%85%D0%BE%D0%B2%D1%83%D1%94%D1%82%D1%8C%D1%81%D1%8F%20%D1%88%D0%BB%D1%8F%D1%85%D0%BE%D0%BC,%D1%80%D0%BE%D1%81%D1%82%D1%83%20(%D1%83%20%D0%BC%D0%B5%D1%82%D1%80%D0%B0%D1%85%20%D0%BA%D0%B2%D0%B0%D0%B4%D1%80%D0%B0%D1%82%D0%BD%D0%B8%D1%85).
 
 2. Створити функцію для визначення категорії ІМТ:
    - Використайте стандартні категорії ВООЗ:

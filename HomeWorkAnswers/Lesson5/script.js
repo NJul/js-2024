@@ -1,3 +1,16 @@
+// Common
+
+const getPositiveValue = message => {
+  while (true) {
+    let value = prompt(message);
+    if (value === null) return null;
+    value = value.replace(',', '.');
+    let isValid = !isNaN(value) && value.trim() !== '' && Number(value) > 0;
+    if (isValid) return Number(value);
+    alert('Будь ласка, введіть позитивне ненульове число');
+  }
+};
+
 /* Завдання 1 */
 /* Програма, яка обчислює індекс маси тіла */
 
@@ -16,30 +29,106 @@ const getBMICategory = bmi => {
   }
 };
 
-const getNumericValue = message => {
-  while (true) {
-    let value = prompt(message);
-    if (value === null) return null;
-    value = value.replace(',', '.');
-    let isValid = !isNaN(value) && value.trim() !== '';
-    if (isValid) return Number(value);
-  }
-};
+const weightKg = getPositiveValue('Введіть вашу вагу в кілограмах:');
+const heightM = getPositiveValue('Введіть ваш ріст в метрах, наприклад, 1.71:');
 
-const weightKg = getNumericValue('Введіть вашу вагу в кілограмах:');
-const heightM = getNumericValue('Введіть ваш ріст в метрах, наприклад, 1.71:');
-
-const bmi = calculateBodyMassIndex(weightKg, heightM);
-const category = getBMICategory(bmi);
-
-if (weightKg === null || heightM === null) {
-  console.log('Ви скасували введення значень');
-} else {
+if (weightKg !== null && heightM !== null) {
+  const bmi = calculateBodyMassIndex(weightKg, heightM);
+  const category = getBMICategory(bmi);
   alert(`Ваш ІМТ: ${bmi} (${category})`);
 }
 
 /* Завдання 2 */
 /* Програма, яка обчислює площу та периметр різних геометричних фігур */
+
+const getCircleMetrics = radius => {
+  const PI = Math.PI;
+
+  const getCircleArea = radius => PI * Math.pow(radius, 2);
+  const getCirclePerimeter = radius => 2 * PI * radius;
+
+  const area = getCircleArea(radius);
+  const perimeter = getCirclePerimeter(radius);
+
+  displayResults(area, perimeter);
+};
+
+const getRectangleMetrics = (length, width) => {
+  const getRectangleArea = (length, width) => length * width;
+  const getRectanglePerimeter = (length, width) => 2 * (length + width);
+
+  const area = getRectangleArea(length, width);
+  const perimeter = getRectanglePerimeter(length, width);
+
+  displayResults(area, perimeter);
+};
+
+const getTriangleMetrics = (a, b, c) => {
+  const getTriangleArea = (a, b, c) => {
+    const p = (a + b + c) / 2;
+    return Math.sqrt(p * (p - a) * (p - b) * (p - c));
+  };
+
+  const getTrianglePerimeter = (a, b, c) => a + b + c;
+
+  const isValidTriangle = (a, b, c) => a + b > c && a + c > b && b + c > a;
+
+  if (isValidTriangle(a, b, c)) {
+    const area = getTriangleArea(a, b, c);
+    const perimeter = getTrianglePerimeter(a, b, c);
+
+    displayResults(area, perimeter);
+  } else {
+    alert(
+      `Задані значення не утворюють трикутник.
+Сума довжин двох будь-яких сторін трикутника завжди перевищує довжину третьої сторони`
+    );
+  }
+};
+
+const getValidValue = message => {
+  const validValues = ['коло', 'прямокутник', 'трикутник'];
+
+  while (true) {
+    const value = prompt(message);
+    if (value === null) return null;
+    const lowerCaseValue = value.toLowerCase();
+    if (validValues.includes(lowerCaseValue)) return lowerCaseValue;
+    alert('Помилка. Будь ласка, введіть: коло, прямокутник або трикутник');
+  }
+};
+
+const selectShape = () => {
+  const shape = getValidValue(
+    'Виберіть фігуру: коло, прямокутник або трикутник'
+  );
+
+  if (shape === 'коло') {
+    const radius = getPositiveValue('Введіть радіус');
+    getCircleMetrics(radius);
+  } else if (shape === 'прямокутник') {
+    const length = getPositiveValue('Введіть довжину прямокутника');
+    const width = getPositiveValue('Введіть ширину прямокутника');
+    getRectangleMetrics(length, width);
+  } else if (shape === 'трикутник') {
+    const a = getPositiveValue('Введіть довжину сторони a трикутника:');
+    const b = getPositiveValue('Введіть довжину сторони b трикутника:');
+    const c = getPositiveValue('Введіть довжину сторони c трикутника:');
+    getTriangleMetrics(a, b, c);
+  } else {
+    alert('Щось пішло не так. Перезапустіть програму і спробуйте ще раз');
+  }
+};
+
+const displayResults = (area, perimeter) => {
+  alert(
+    `Площа: ${parseFloat(area.toFixed(2))} Периметр: ${parseFloat(
+      perimeter.toFixed(2)
+    )}`
+  );
+};
+
+selectShape();
 
 /* Завдання 1
 Написати програму, яка обчислює індекс маси тіла (ІМТ) і дає рекомендації на основі отриманого значення.

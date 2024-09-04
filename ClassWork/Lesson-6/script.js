@@ -149,7 +149,7 @@ while (true) {
 }
 
 console.log('Ви зробили ' + attempts.length + ' спроб');
-attempts.forEach((x) => console.log(x));
+attempts.forEach(x => console.log(x));
 
 /* Array Methods */
 

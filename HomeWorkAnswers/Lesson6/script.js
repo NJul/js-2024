@@ -1,4 +1,86 @@
-let grades = [];
+/* Завдання 1 */
+/* Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки */
+
+const createGradesArray = length =>
+  Array.from({ length }, () => Math.floor(Math.random() * 101));
+
+const getAverage = arr => {
+  let acc = 0;
+  arr.forEach(el => (acc += el));
+  return parseFloat((acc / arr.length).toFixed(2));
+};
+
+const findLowestGrade = arr => Math.min(...arr);
+
+const findHighestGrade = arr => {
+  let currentMax = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    if (arr[i] > currentMax) currentMax = arr[i];
+  }
+  return currentMax;
+};
+
+const showResult = (average, highestGrade, lowestGrade) => {
+  alert(
+    `Середній бал: ${average}, найвища оцінка: ${highestGrade}, найнижча оцінка: ${lowestGrade}`
+  );
+};
+
+const grades = createGradesArray(30);
+const average = getAverage(grades);
+const lowestGrade = findLowestGrade(grades);
+const highestGrade = findHighestGrade(grades);
+
+showResult(average, highestGrade, lowestGrade);
+
+// Отримання оцінок від користувача
+
+const getNumericValue = message => {
+  // Функція фільтрації цілих чисел
+  const filterInt = value => {
+    if (/^(\-|\+)?([0-9]+|Infinity)$/.test(value)) return Number(value);
+    return NaN;
+  };
+
+  while (true) {
+    let value = prompt(message);
+    if (value === null) return null;
+    const numValue = filterInt(value);
+
+    let isValid =
+      !isNaN(numValue) &&
+      value.trim() !== '' &&
+      Number.isInteger(numValue) &&
+      numValue >= 0 &&
+      numValue <= 100;
+
+    if (isValid) return numValue;
+    alert('Будь ласка, введіть ціле число від 0 до 100');
+  }
+};
+
+const inputGrades = () => {
+  let grades = [];
+  let input;
+
+  while (true) {
+    input = getNumericValue(
+      "Введіть оцінку або натисніть 'Cancel' для завершення дії"
+    );
+    if (input === null) break;
+    grades.push(input);
+  }
+  return grades;
+};
+
+const gradesFromUser = inputGrades();
+
+if (gradesFromUser.length > 0) {
+  const average = getAverage(gradesFromUser);
+  const lowestGrade = findLowestGrade(gradesFromUser);
+  const highestGrade = findHighestGrade(gradesFromUser);
+  showResult(average, highestGrade, lowestGrade);
+}
 
 /* Завдання 1
 Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки.

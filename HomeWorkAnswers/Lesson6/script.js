@@ -82,6 +82,121 @@ if (gradesFromUser.length > 0) {
   showResult(average, highestGrade, lowestGrade);
 }
 
+/* Завдання 2 */
+/* Написати програму, яка працює зі списком покупок: додає нові товари, видаляє наявні та виводить список товарів на екран */
+
+const shoppingList = ['Морозиво'];
+
+const containerShoppingListItems = document.getElementById(
+  'shoppingList__items'
+);
+const actionButton = document.getElementById('actionButton');
+
+let isFirstLoad = true;
+
+const displayItems = shoppingList => {
+  containerShoppingListItems.innerHTML = '';
+  shoppingList.forEach(item => {
+    const html = `<li class="shoppingList__item added">${item}</li>`;
+    containerShoppingListItems.insertAdjacentHTML('beforeend', html);
+  });
+};
+
+const addItem = item => {
+  const itemLowerCase = item.toLowerCase();
+
+  /* Метод some() перевіряє, чи задовольняє хоча б один елемент масиву певній умові. Він повертає true, якщо хоча б один елемент відповідає умові, і false, якщо жоден не відповідає, що означає, що товар не знайдено в існуючому масиві, ! перетворює це в true, і умова в if буде виконана. */
+
+  if (
+    !shoppingList.some(
+      existingItem => existingItem.toLowerCase() === itemLowerCase
+    )
+  ) {
+    shoppingList.push(item);
+    alert('Товар додано');
+  } else {
+    alert('Товар вже існує в списку');
+  }
+};
+
+const removeItemByTitle = (array, title) => {
+  const titleLowerCase = title.toLowerCase();
+  const index = array.findIndex(item => item.toLowerCase() === titleLowerCase);
+  if (index !== -1) {
+    array.splice(index, 1);
+    alert('Товар видалено');
+  } else {
+    alert(`Товару ${title} немає в списку`);
+  }
+};
+
+const getAction = (
+  message,
+  validActions = ['додавання товару', 'видалення товару', 'виведення списку']
+) => {
+  while (true) {
+    const value = prompt(message);
+    if (value === null) return null;
+    const lowerCaseValue = value.toLowerCase();
+    if (validActions.includes(lowerCaseValue)) return lowerCaseValue;
+    alert(`Помилка. Будь ласка, введіть: ${validActions.join(', ')}`);
+  }
+};
+
+const promptForItemName = message => {
+  while (true) {
+    const itemName = prompt(message);
+    if (itemName === null) return null;
+    if (itemName) return itemName;
+    alert('Назва покупки не може бути порожньою. Спробуйте ще раз');
+  }
+};
+
+const handleUserAction = () => {
+  const action = getAction(
+    'Виберіть дію: додавання товару, видалення товару або виведення списку'
+  );
+
+  if (action === null) {
+    alert('Дія скасована користувачем');
+    return;
+  }
+
+  if (action === 'додавання товару') {
+    while (true) {
+      const item = promptForItemName('Введіть назву покупки');
+      if (item === null) {
+        alert('Додавання товару завершено');
+        break;
+      }
+      addItem(item);
+    }
+  } else if (action === 'видалення товару') {
+    while (true) {
+      const item = promptForItemName('Введіть назву товару для видалення');
+      if (item === null) {
+        alert('Видалення товару завершено');
+        break;
+      }
+      removeItemByTitle(shoppingList, item);
+    }
+  } else if (action === 'виведення списку') {
+    displayItems(shoppingList);
+    return;
+  }
+
+  handleUserAction();
+};
+
+window.onload = () => {
+  if (isFirstLoad) {
+    displayItems(shoppingList);
+    isFirstLoad = false;
+  }
+};
+
+actionButton.addEventListener('click', handleUserAction);
+
 /* Завдання 1
 Написати програму, яка аналізує список оцінок студентів і знаходить середній бал, найвищу та найнижчу оцінки.
 

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <script>
+
+    let options = {
+      circle: function () {
+        console.log('circle');
+      },
+
+      rectangle: function () {
+        console.log('rectangle');
+      },
+
+      triangle: function () {
+        console.log('triangle');
+      }
+    };
+
+    // перевірити спочатку, що отримані дані не undefined
+    let option = prompt("select circle, rectangle of triangle");
+
+    options[option]();
+
+  </script>
+</body>
+
+</html>

@@ -1,5 +1,18 @@
 /* Завдання: Написати програму для управління інформацією про студентів у групі */
 
+class Student {
+  constructor(firstName, lastName, age, identificationNumber, averageGrade) {
+    this.firstName = firstName;
+    this.lastNme = lastName;
+    this.age = age;
+    this.identificationNumber = identificationNumber;
+    this.averageGrade = averageGrade;
+  }
+}
+
+const student1 = new Student('Юлія', 'Литвиненко', 20, 1234567890, 90.5);
+console.log(student1);
+
 /*
 Завдання: Написати програму для управління інформацією про студентів у групі.
 Програма повинна дозволяти додавати нових студентів, видаляти студентів і виводити інформацію про всіх студентів.

@@ -1,0 +1,39 @@
+// Якщо селектор не знаходиться на сторінці, повертається значення null
+
+.test {
+  color: red;
+}
+
+/* p - select all p elements */
+p {
+  color: green;
+}
+
+/* .class_name - select all elements with a class attribute with value followed after .  */
+.company {
+  color: yellow;
+}
+
+/* Усі параграфи с класом company будут червоним кольором */
+p.company {
+  color: red;
+}
+
+/* ul.responsibilities - all ul with class responsibilities */
+ul.responsibilities {
+  font-size: 20px;
+}
+
+/* #id_value - select all elements with an id attribute with value followed after # */
+#header {
+  color: blue;
+}
+
+#h1Element {
+  color: blue;
+}
+
+/* select all elements */
+* {
+  font-family: 'Gill Sans';
+}

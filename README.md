@@ -1,6 +1,6 @@
-Homework [Lesson1](https://github.com/NJul/js-2024){target="_blank"}, [Lesson2](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson2/){target="_blank"}, [Lesson3](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson3/){target="_blank"}, [Lesson4](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson4/){target="_blank"}, [Lesson5](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson5/){target="_blank"}, [Lesson6](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson6/){target="_blank"}, [Lesson7](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson7/){target="_blank"}, [Lesson8](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson8/){target="_blank"}
+Homework [Lesson1](https://github.com/NJul/js-2024), [Lesson2](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson2/), [Lesson3](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson3/), [Lesson4](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson4/), [Lesson5](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson5/), [Lesson6](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson6/), [Lesson7](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson7/), [Lesson8](https://njul.github.io/js-course-2024/HomeWorkAnswers/Lesson8/)
 
-[Code](https://github.com/NJul/js-course-2024/tree/master/HomeWorkAnswers){target="_blank"}
+[Code](https://github.com/NJul/js-course-2024/tree/master/HomeWorkAnswers)
 
 ```
 

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Приклад використання Promise</title>
+  </head>
+
+  <body>
+    <button>Завантажити</button>
+    <br />
+    <br />
+    <script>
+      document.querySelector('button').addEventListener('click', function () {
+        let url1 = 'https://picsum.photos/500/300';
+        let url2 = 'https://picsum.photos/500/300';
+
+        let promise1 = downloadImage(url1);
+        promise1.then(
+          image => document.body.append(image),
+          e => console.log(e.message)
+        );
+
+        let promise2 = downloadImage(url2);
+        promise2.then(
+          image => document.body.append(image),
+          e => console.log(e.message)
+        );
+      });
+
+      function downloadImage(url) {
+        return new Promise(function (resolve, reject) {
+          let image = new Image(500);
+          image.src = url;
+
+          image.onload = function () {
+            resolve(image);
+          };
+
+          image.onerror = function () {
+            reject(new Error('Не вдалося завантажити зображення ' + this.src));
+          };
+        });
+      }
+    </script>
+  </body>
+</html>

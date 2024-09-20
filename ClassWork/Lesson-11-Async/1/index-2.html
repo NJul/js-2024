@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Асинхронне завантаження зображень</title>
+  </head>
+
+  <body>
+    <button>Завантажити випадкове зображення</button>
+    <br />
+    <script>
+      document
+        .querySelector('button')
+        .addEventListener('click', async function () {
+          let image = await downloadImage();
+          document.body.append(image);
+        });
+
+      // Функція для завантаження зображення через API Lorem Picsum
+      async function downloadImage() {
+        try {
+          let response = await fetch('https://picsum.photos/300/200', {
+            method: 'GET'
+          });
+
+          let image = new Image(300);
+          image.src = response.url; // Встановлюємо URL отриманого зображення
+          return image;
+        } catch (error) {
+          console.error('Помилка при завантаженні зображення:', error);
+        }
+      }
+    </script>
+  </body>
+</html>

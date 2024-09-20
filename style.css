@@ -44,6 +44,7 @@ body {
   font-size: 16px;
   color: var(--color-red);
   background-color: var(--background-color-2);
+  border-radius: 7px;
   transform: rotate(3deg);
 }
 
@@ -60,7 +61,7 @@ body {
   background-color: var(--background-color);
   border-color: var(--color-royalblue);
   border-width: 1px;
-  border-radius: 10px;
+  border-radius: 5px;
 }
 
 .clock {
@@ -79,6 +80,49 @@ body {
 .clock:hover {
   background-color: var(--background-color-3);
   cursor: pointer;
+}
+
+/* weather container */
+
+.weather-container {
+  position: absolute;
+  top: 178px;
+  left: 45%;
+  transform: translateX(-50%);
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 5px;
+  width: 118px;
+  text-align: center;
+  z-index: 10;
+}
+
+.cityInput {
+  width: 75%;
+  margin-bottom: 10px;
+  padding: 5px;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+}
+
+.getWeatherBtn {
+  padding: 5px 10px;
+  font-size: 14px;
+  color: var(--color-royalblue);
+  background-color: var(--background-color);
+  border: 1px solid var(--color-royalblue);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.getWeatherBtn:hover {
+  background-color: var(--background-color-3);
+}
+
+.weatherResult {
+  margin-top: 10px;
+  font-size: 14px;
+  color: var(--text-color);
 }
 
 /* title-text-container */
@@ -129,5 +173,3 @@ body {
 .title-text:hover::after {
   transform: rotate(0);
 }
-
-/* / title-text-container */

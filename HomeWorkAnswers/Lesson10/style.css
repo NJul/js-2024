@@ -43,6 +43,7 @@ body {
   background-color: var(--card-bg-color);
   border-radius: 8px;
   box-shadow: 0 0 10px var(--box-shadow-color);
+  transition: opacity 0.5s ease, transform 0.5s ease;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
@@ -98,32 +99,33 @@ button:hover {
 
 /* Form Styles */
 
-#bookForm {
+.bookForm {
   background-color: var(--card-bg-color);
   padding: 1.5rem;
   margin: 2rem auto;
   width: 90%;
   max-width: 600px;
+  min-width: 415px;
   border-radius: 8px;
   box-shadow: 0 0 10px var(--box-shadow-color);
   display: flex;
   flex-direction: column;
 }
 
-#bookForm div {
+.bookForm div {
   margin-bottom: 1.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-#bookForm label {
+.bookForm label {
   font-weight: 500;
   color: var(--text-color);
   width: 100px;
 }
 
-#bookForm input[type='text'] {
+.bookForm input[type='text'] {
   flex: 1;
   padding: 0.5rem;
   border: 1px solid var(--meta-color);
@@ -132,7 +134,16 @@ button:hover {
   color: var(--text-color);
 }
 
-#bookForm button {
+.bookForm input[type='number'] {
+  flex: 1;
+  padding: 0.5rem;
+  border: 1px solid var(--meta-color);
+  border-radius: 4px;
+  font-size: 1rem;
+  color: var(--text-color);
+}
+
+.bookForm button {
   margin-top: 0.3rem;
   padding: 0.7rem 1.5rem;
   font-size: 1rem;
@@ -140,7 +151,7 @@ button:hover {
 
 /* Notification Styles */
 
-#notification {
+.notification {
   display: none;
 
   position: fixed;
@@ -155,12 +166,12 @@ button:hover {
   max-width: 500px;
   left: 50%;
   border-radius: 5px;
-  transform: translateX(-50%);
   box-shadow: 0 0 10px var(--box-shadow-color);
   transition: bottom 0.5s ease-in-out;
+  transform: translateX(-50%);
 }
 
-#notification.show {
+.notification.show {
   display: block;
 
   bottom: 20px;
@@ -177,6 +188,6 @@ button:hover {
   }
 }
 
-#notification.added {
+.notification.added {
   animation: slideIn 0.5s ease forwards;
 }

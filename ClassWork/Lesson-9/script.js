@@ -19,3 +19,5 @@ function changeColor() {
 
 // myDiv.onclick = changeColor;
 myDiv.addEventListener('click', changeColor);
+
+// myDiv.removeEventListener('click', changeColor);
